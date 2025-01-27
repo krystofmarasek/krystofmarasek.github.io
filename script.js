@@ -56,9 +56,9 @@ function startLottery() {
         setTimeout(() => {
             lotteryResult.innerHTML += "<br>Results are in!";
             selectForTrashDuty();
-        }, 1500);
+        }, 2500);
         
-    }, 1500);
+    }, 2500);
 }
 
 // Select employees for Trash Duty
@@ -147,15 +147,81 @@ function updateProgress() {
     }
 }
 
+// Race Goal Progress Functionality with Local Storage
+function updateProgress() {
+    const goal = parseFloat(document.getElementById('goal').value);
+    const actual = parseFloat(document.getElementById('actual').value);
+
+    if (isNaN(goal) || isNaN(actual) || goal <= 0) {
+        alert("Please enter valid numbers. Goal must be greater than 0.");
+        return;
+    }
+
+    const progressPercentage = Math.min((actual / goal) * 100, 100);
+    
+    const progressBar = document.getElementById('progressBar');
+    const progressText = document.getElementById('progressText');
+
+    if (progressBar && progressText) {
+        progressBar.style.width = progressPercentage + "%";
+        progressText.textContent = `Progress (Daily): ${progressPercentage.toFixed(2)}%`;
+
+        if (progressPercentage >= 100) {
+            progressText.textContent += " - Goal Achieved!";
+        }
+        
+        // Save daily data to local storage
+        localStorage.setItem("raceGoal", JSON.stringify({ goal, actual }));
+    }
+}
+
+// Monthly Race Goal Progress Functionality
+function updateMonthlyProgress() {
+    const monthlyGoal = parseFloat(document.getElementById('monthlyGoal').value);
+    const monthlyActual = parseFloat(document.getElementById('monthlyActual').value);
+
+    if (isNaN(monthlyGoal) || isNaN(monthlyActual) || monthlyGoal <= 0) {
+        alert("Please enter valid numbers. Monthly goal must be greater than 0.");
+        return;
+    }
+
+    const monthlyProgressPercentage = Math.min((monthlyActual / monthlyGoal) * 100, 100);
+
+    const monthlyProgressBar = document.getElementById('monthlyProgressBar');
+    const monthlyProgressText = document.getElementById('monthlyProgressText');
+
+    if (monthlyProgressBar && monthlyProgressText) {
+        monthlyProgressBar.style.width = monthlyProgressPercentage + "%";
+        monthlyProgressText.textContent = `Progress (Monthly): ${monthlyProgressPercentage.toFixed(2)}%`;
+
+        if (monthlyProgressPercentage >= 100) {
+            monthlyProgressText.textContent += " - Goal Achieved!";
+        }
+
+        // Save monthly data to local storage
+        localStorage.setItem("monthlyRaceGoal", JSON.stringify({ monthlyGoal, monthlyActual }));
+    }
+}
+
 // Load Race Goal Progress from Local Storage
 function loadRaceGoalProgress() {
-    const savedData = JSON.parse(localStorage.getItem("raceGoal"));
+    const savedDailyData = JSON.parse(localStorage.getItem("raceGoal"));
+    const savedMonthlyData = JSON.parse(localStorage.getItem("monthlyRaceGoal"));
 
-    if (savedData) {
-        document.getElementById("goal").value = savedData.goal;
-        document.getElementById("actual").value = savedData.actual;
+    // Load daily race goal data
+    if (savedDailyData) {
+        document.getElementById("goal").value = savedDailyData.goal;
+        document.getElementById("actual").value = savedDailyData.actual;
 
-        updateProgress(); // Update progress bar and text with saved data
+        updateProgress(); // Update daily progress bar and text with saved data
+    }
+
+    // Load monthly race goal data
+    if (savedMonthlyData) {
+        document.getElementById("monthlyGoal").value = savedMonthlyData.monthlyGoal;
+        document.getElementById("monthlyActual").value = savedMonthlyData.monthlyActual;
+
+        updateMonthlyProgress(); // Update monthly progress bar and text with saved data
     }
 }
 

@@ -8,32 +8,35 @@
 </head>
 <body>
     <header>
-        <h1>Trash Duty Selector</h1>
+        <div class="logo">
+            <h1>Trash Duty Selector</h1>
+        </div>
         <nav>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <!-- Add links to other tools here -->
             </ul>
         </nav>
     </header>
 
-    <main>
-        <div>
+    <main class="trash-duty-container">
+        <h2>Assign Trash Duty</h2>
+
+        <div class="form-group">
             <label for="numToSelect">Number of people needed for trash duty:</label>
-            <input type="number" id="numToSelect" min="1" value="3">
+            <input type="number" id="numToSelect" min="1" value="2">
         </div>
 
-        <h2>Select Present Employees:</h2>
+        <h3>Select Present Employees:</h3>
         <div class="employee-list" id="employeeList"></div>
 
-        <button onclick="startLottery()">Start Lottery for Trash Duty</button>
+        <button onclick="startLottery()" class="btn">Start Lottery</button>
 
         <div id="lotteryResult"></div>
         <div id="result"></div>
     </main>
 
     <footer>
-        <p>&copy; 2025 Tools Dashboard. All rights reserved.</p>
+        <p>&copy; 2025 Nike Factory Tools. All rights reserved.</p>
     </footer>
 
     <!-- Include JavaScript -->

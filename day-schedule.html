@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day's Schedule</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Day's Schedule</h1>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="schedule-container">
+        <h2>Create Day's Schedule</h2>
+
+        <div id="employeeSelection">
+            <h3>Select Present Employees:</h3>
+            <!-- Employee checkboxes will be dynamically added here -->
+        </div>
+
+        <div id="scheduleInputs">
+            <!-- Time inputs and break selections will be added here for each selected employee -->
+        </div>
+
+        <button onclick="generateSchedule()" class="btn">Generate Schedule</button>
+
+        <div id="scheduleResult"></div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Nike Factory Tools. All rights reserved.</p>
+    </footer>
+
+    <script src="script-schedule.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+</html>
