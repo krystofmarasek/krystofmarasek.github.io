@@ -20,7 +20,7 @@ const employees = [
     { name: 'Pája', position: 'athlete', cash: true },
     { name: 'Andy', position: 'athlete', cash: true },
     { name: 'Anička H', position: 'athlete', cash: true },
-    { name: 'Anicka Š', position: 'athlete', cash: true },
+    { name: 'Anička Š', position: 'athlete', cash: true },
     { name: 'Gabča', position: 'athlete', cash: true },
     { name: 'Dyry', position: 'athlete', cash: true },
     { name: 'Lucka', position: 'athlete', cash: false }
