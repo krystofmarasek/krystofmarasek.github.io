@@ -131,7 +131,7 @@ function startLottery() {
     }
 
     // Proceed with lottery process
-    lotteryResult.innerHTML = "<h3>🎰 Extravagantní loterie úklidu odpadků! 🎰</h3>";
+    lotteryResult.innerHTML = "<h3>🎰 Loterie úklidu odpadků! 🎰</h3>";
 
     const stages = [
         "Inicializace Odpadko-Matiku 3000...",
