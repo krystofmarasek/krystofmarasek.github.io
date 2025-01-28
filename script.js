@@ -2,7 +2,7 @@
 const employees = [
     { name: 'Filip J', position: 'manager', cash: true },
     { name: 'Verča Z', position: 'manager', cash: true },
-    { name: 'Verča H', position: 'manager', cash: false },
+    { name: 'Hajdu', position: 'manager', cash: false },
     { name: 'Táňa', position: 'manager', cash: true },
     { name: 'Anet', position: 'manager', cash: true },
     { name: 'Adam', position: 'manager', cash: true },
@@ -22,7 +22,8 @@ const employees = [
     { name: 'Anička H', position: 'athlete', cash: true },
     { name: 'Anicka Š', position: 'athlete', cash: true },
     { name: 'Gabča', position: 'athlete', cash: true },
-    { name: 'Dyry', position: 'athlete', cash:true }
+    { name: 'Dyry', position: 'athlete', cash: true },
+    { name: 'Lucka', position: 'athlete', cash: false }
 ];
 
 const trashDutyMessages = [
