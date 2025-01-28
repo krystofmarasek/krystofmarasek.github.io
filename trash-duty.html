@@ -3,40 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trash Duty Selector</title>
+    <title>Přiřazení úklidové čety</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <div class="logo">
-            <h1>Trash Duty Selector</h1>
+            <h1>Přiřazení úklidové čety</h1>
         </div>
         <nav>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Domů</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="trash-duty-container">
-        <h2>Assign Trash Duty</h2>
+        <h2>Přiřaďte úklidovou četu</h2>
 
         <div class="form-group">
-            <label for="numToSelect">Number of people needed for trash duty:</label>
+            <label for="numToSelect">Počet lidí potřebných pro úklidovou četu:</label>
             <input type="number" id="numToSelect" min="1" value="2">
         </div>
 
-        <h3>Select Present Employees:</h3>
+        <h3>Vyberte přítomné zaměstnance:</h3>
         <div class="employee-list" id="employeeList"></div>
 
-        <button onclick="startLottery()" class="btn">Start Lottery</button>
+        <button onclick="startLottery()" class="btn">Spustit losování</button>
 
         <div id="lotteryResult"></div>
         <div id="result"></div>
     </main>
 
     <footer>
-        <p>&copy; 2025 Nike Factory Tools. All rights reserved.</p>
+        <p>&copy; 2025 Nike Factory Nástroje. Všechna práva vyhrazena. Běž za svým cílem!</p>
     </footer>
 
     <!-- Include JavaScript -->

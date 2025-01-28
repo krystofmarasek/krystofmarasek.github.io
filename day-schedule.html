@@ -4,42 +4,227 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day's Schedule</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        #employeeList, #scheduleForm, #generatedSchedule {
+            margin-bottom: 20px;
+        }
+        .employee-item {
+            margin-bottom: 10px;
+        }
+        button {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <h1>Day's Schedule</h1>
-        </div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-            </ul>
-        </nav>
-    </header>
+    <h1>Create Day's Schedule</h1>
+    <div id="employeeList">
+        <h2>Select Present Employees:</h2>
+        <!-- Employee checkboxes will be dynamically added here -->
+    </div>
+    <div id="scheduleForm">
+        <!-- Schedule form will be dynamically added here -->
+    </div>
+    <button id="generateSchedule">Generate Schedule</button>
+    <div id="generatedSchedule">
+        <!-- Generated schedule will be displayed here -->
+    </div>
 
-    <main class="schedule-container">
-        <h2>Create Day's Schedule</h2>
+    <script>
+        const employees = [
+            { name: 'Filip J', position: 'manager', cash: true },
+            { name: 'Verca Z', position: 'manager', cash: true },
+            { name: 'Verca H', position: 'manager', cash: false },
+            { name: 'Tana', position: 'manager', cash: true },
+            { name: 'Anet', position: 'manager', cash: true },
+            { name: 'Adam', position: 'manager', cash: true },
+            { name: 'Filip N', position: 'athlete', cash: true },
+            { name: 'David K', position: 'athlete', cash: true },
+            { name: 'David M', position: 'athlete', cash: true },
+            { name: 'Ophelie', position: 'athlete', cash: false },
+            { name: 'Krystof', position: 'athlete', cash: true },
+            { name: 'Tomas', position: 'athlete', cash: true },
+            { name: 'Kobi', position: 'athlete', cash: false },
+            { name: 'Nikca', position: 'athlete', cash: true },
+            { name: 'Eliska', position: 'athlete', cash: true },
+            { name: 'Paja', position: 'athlete', cash: true },
+            { name: 'Andy', position: 'athlete', cash: true },
+            { name: 'Anicka H', position: 'athlete', cash: true },
+            { name: 'Anicka S', position: 'athlete', cash: true },
+            { name: 'Gabca', position: 'athlete', cash: true },
+            { name: 'Dyry', position: 'athlete', cash:true }
+        ];
 
-        <div id="employeeSelection">
-            <h3>Select Present Employees:</h3>
-            <!-- Employee checkboxes will be dynamically added here -->
-        </div>
+        const employeeList = document.getElementById('employeeList');
+        const scheduleForm = document.getElementById('scheduleForm');
+        const generateScheduleBtn = document.getElementById('generateSchedule');
+        const generatedSchedule = document.getElementById('generatedSchedule');
 
-        <div id="scheduleInputs">
-            <!-- Time inputs and break selections will be added here for each selected employee -->
-        </div>
+        // Populate employee list
+        employees.forEach(employee => {
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.id = employee.name;
+            checkbox.value = employee.name;
 
-        <button onclick="generateSchedule()" class="btn">Generate Schedule</button>
+            const label = document.createElement('label');
+            label.htmlFor = employee.name;
+            label.textContent = `${employee.name} (${employee.position})`;
 
-        <div id="scheduleResult"></div>
-    </main>
+            const div = document.createElement('div');
+            div.classList.add('employee-item');
+            div.appendChild(checkbox);
+            div.appendChild(label);
 
-    <footer>
-        <p>&copy; 2025 Nike Factory Tools. All rights reserved.</p>
-    </footer>
+            employeeList.appendChild(div);
+        });
 
-    <script src="script-schedule.js" defer></script>
-    <script src="script.js" defer></script>
+        // Event listener for employee selection
+        employeeList.addEventListener('change', (e) => {
+            if (e.target.type === 'checkbox' && e.target.checked) {
+                createEmployeeScheduleForm(e.target.value);
+            } else if (e.target.type === 'checkbox' && !e.target.checked) {
+                removeEmployeeScheduleForm(e.target.value);
+            }
+        });
+
+        function createEmployeeScheduleForm(employeeName) {
+            const formDiv = document.createElement('div');
+            formDiv.id = `form-${employeeName}`;
+            formDiv.innerHTML = `
+                <h3>${employeeName}</h3>
+                <label>Start Time: <input type="time" name="startTime" min="10:00" max="20:00" required></label>
+                <label>End Time: <input type="time" name="endTime" min="10:00" max="20:00" required></label>
+                <label>Break 1 Start: <input type="time" name="break1Start" min="10:00" max="20:00"></label>
+                <label>Break 1 End: <input type="time" name="break1End" min="10:00" max="20:00"></label>
+                <label>Break 2 Start: <input type="time" name="break2Start" min="10:00" max="20:00"></label>
+                <label>Break 2 End: <input type="time" name="break2End" min="10:00" max="20:00"></label>
+            `;
+            scheduleForm.appendChild(formDiv);
+        }
+
+        function removeEmployeeScheduleForm(employeeName) {
+            const formToRemove = document.getElementById(`form-${employeeName}`);
+            if (formToRemove) {
+                formToRemove.remove();
+            }
+        }
+
+        generateScheduleBtn.addEventListener('click', generateSchedule);
+
+        function generateSchedule() {
+    const selectedEmployees = getSelectedEmployees();
+    const schedule = createDaySchedule(selectedEmployees);
+    displaySchedule(schedule);
+}
+
+function getSelectedEmployees() {
+    const selectedEmployees = [];
+    const checkboxes = document.querySelectorAll('#employeeList input[type="checkbox"]:checked');
+    
+    checkboxes.forEach(checkbox => {
+        const employeeName = checkbox.value;
+        const employeeData = employees.find(emp => emp.name === employeeName);
+        const formData = getEmployeeFormData(employeeName);
+        
+        selectedEmployees.push({
+            ...employeeData,
+            ...formData
+        });
+    });
+    
+    return selectedEmployees;
+}
+
+function getEmployeeFormData(employeeName) {
+    const form = document.getElementById(`form-${employeeName}`);
+    return {
+        startTime: form.querySelector('[name="startTime"]').value,
+        endTime: form.querySelector('[name="endTime"]').value,
+        break1Start: form.querySelector('[name="break1Start"]').value,
+        break1End: form.querySelector('[name="break1End"]').value,
+        break2Start: form.querySelector('[name="break2Start"]').value,
+        break2End: form.querySelector('[name="break2End"]').value
+    };
+}
+
+function createDaySchedule(selectedEmployees) {
+    const schedule = {};
+    const timeSlots = generateTimeSlots("10:00", "20:00", 15);
+    
+    timeSlots.forEach(slot => {
+        const availableEmployees = getAvailableEmployees(selectedEmployees, slot);
+        if (availableEmployees.length < 3) {
+            throw new Error(`Not enough employees available at ${slot}`);
+        }
+        
+        const cashRegisterEmployee = availableEmployees.find(emp => emp.cash);
+        const fittingRoomEmployee = availableEmployees.find(emp => emp !== cashRegisterEmployee);
+        const backupEmployee = availableEmployees.find(emp => emp !== cashRegisterEmployee && emp !== fittingRoomEmployee && emp.cash);
+        
+        schedule[slot] = {
+            cashRegister: cashRegisterEmployee ? cashRegisterEmployee.name : 'N/A',
+            fittingRoom: fittingRoomEmployee ? fittingRoomEmployee.name : 'N/A',
+            backup: backupEmployee ? backupEmployee.name : 'N/A'
+        };
+    });
+    
+    return schedule;
+}
+
+function generateTimeSlots(start, end, intervalMinutes) {
+    const slots = [];
+    let current = new Date(`2025-01-27T${start}`);
+    const endTime = new Date(`2025-01-27T${end}`);
+    
+    while (current < endTime) {
+        slots.push(current.toTimeString().slice(0, 5));
+        current.setMinutes(current.getMinutes() + intervalMinutes);
+    }
+    
+    return slots;
+}
+
+function getAvailableEmployees(employees, timeSlot) {
+    return employees.filter(emp => {
+        const currentTime = new Date(`2025-01-27T${timeSlot}`);
+        const startTime = new Date(`2025-01-27T${emp.startTime}`);
+        const endTime = new Date(`2025-01-27T${emp.endTime}`);
+        
+        if (currentTime >= startTime && currentTime < endTime) {
+            const break1Start = new Date(`2025-01-27T${emp.break1Start}`);
+            const break1End = new Date(`2025-01-27T${emp.break1End}`);
+            const break2Start = new Date(`2025-01-27T${emp.break2Start}`);
+            const break2End = new Date(`2025-01-27T${emp.break2End}`);
+            
+            return !(
+                (currentTime >= break1Start && currentTime < break1End) ||
+                (currentTime >= break2Start && currentTime < break2End)
+            );
+        }
+        return false;
+    });
+}
+
+function displaySchedule(schedule) {
+    let html = '<h2>Generated Schedule</h2><table><tr><th>Time</th><th>Cash Register</th><th>Fitting Room</th><th>Backup</th></tr>';
+    
+    for (const [time, positions] of Object.entries(schedule)) {
+        html += `<tr><td>${time}</td><td>${positions.cashRegister}</td><td>${positions.fittingRoom}</td><td>${positions.backup}</td></tr>`;
+    }
+    
+    html += '</table>';
+    generatedSchedule.innerHTML = html;
+}
+
+    </script>
 </body>
 </html>
