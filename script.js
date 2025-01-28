@@ -269,7 +269,7 @@ function updateProgress() {
 }
 
     progressBar.style.background = color;
-    progressText.textContent = `Progress (Daily): ${progressPercentage.toFixed(2)}% - ${message}`;
+    progressText.textContent = `Progres: ${progressPercentage.toFixed(2)}% - ${message}`;
     goalLine.style.left = '100%';
   }
 
