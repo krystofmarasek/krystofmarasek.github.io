@@ -1,7 +1,7 @@
 // Employee data
 const employees = [
     { name: 'Filip J', position: 'manager', cash: true },
-    { name: 'Verča Z', position: 'manager', cash: true },
+    { name: 'Verča Ž', position: 'manager', cash: true },
     { name: 'Hajdu', position: 'manager', cash: false },
     { name: 'Táňa', position: 'manager', cash: true },
     { name: 'Anet', position: 'manager', cash: true },
@@ -32,13 +32,13 @@ const trashDutyMessages = [
   "Tvoje mise, pokud se ji rozhodneš přijmout: Operace Čistý Úklid! 🧹",
   "Bohové odpadků promluvili a vybrali tebe! 🗑️",
   "Připraven na odpadkové dobrodružství? Tvůj okamžik nadešel! 🦸‍♂️🦸‍♀️",
-  "Připoutej se, zlatíčko! Je čas na odpadky! 🚀",
-  "Dnešní VIP (Velmi Důležití Popeláři) byli vybráni! 🏆",
+  "Připoutej se zlatíčko! Je čas na odpadky! 🚀",
+  "Dnešní VIP (Velmi Impozantní Popeláři) byli vybráni! 🏆",
   "Tvůj superhrdinský plášť je připraven - je čas na úklid! 💪",
   "Dnes jsi hvězdou úklidového týmu! ⭐",
   "Gratulujeme k výhře v odpadkové tombole! 🎊",
   "Tvůj den pro záchranu planety je tady! 🌍",
-  "Připrav se na svou misi: Operace Čistá Ulice! 🏙️",
+  "Připrav se na svou misi: Operace Čistá Popelnice! 🏙️",
   "Odpadkový bůh tě povolal do služby! 📯",
   "Tvůj odpadkový trůn čeká! 👑",
   "Dnes jsi kapitánem lodi S.S. Čistota! ⚓",
@@ -47,6 +47,17 @@ const trashDutyMessages = [
   "Tvůj odpadkový žezlo je připraveno k převzetí! 🧙‍♂️",
   "Dnes jsi hlavní hvězdou úklidového představení! 🎭",
   "Tvůj odpadkový meč je nabroušený a připravený! ⚔️",
+  "Vítej v Matrix! Vyber si: modrá popelnice nebo červená popelnice? 🔵🔴",
+  "Gratulujeme k zisku zlatého lístku do Wonkovy továrny na čistotu! 🎫🍫",
+  "Tvůj odpadkový drak je připraven k letu! Dracarys na všechen nepořádek! 🐉🔥",
+  "Vítej v Jurském parku čistoty! Pozor na T-rexe s odpadkovými kleštěmi! 🦖🗑️",
+  "Vítej v nové sezóně Hry o odpadky! Zima přichází, ale špína odchází! ❄️👑",
+  "Tvůj odpadkový lightsaber je nabitý! Nechť tě provází síla čistoty! ⚔️✨",
+  "Gratulujeme k zisku Oskara za nejlepší výkon v kategorii: Nejlepší manipulace s paleťákem! 🏆🎭",
+  "Vítej v Mission: Impossible - Odpadkový protokol! Tato zpráva se za 5 sekund sama uklidí. 🕵️‍♂️💥",
+  "Tvůj odpadkový Patronus byl vyvolán! Expecto Cleanum! 🧙‍♂️✨",
+  "Gratulujeme! Byl jsi povýšen na Velmistra Řádu čistá popelnice! 🏅🗑️",
+  "Vítej v elitním klubu Odpadkových Jedi! Nechť je s tebou síla čistoty! 🧙‍♂️✨"
 ];
 
 
@@ -71,6 +82,26 @@ const trashDutyComments = [
   "Jsi jako detektiv - žádný odpadek ti neunikne! 🕵️‍♂️",
   "Tvůj úklid je jako umění - vytváříš krásu z chaosu! 🎨",
   "Jsi jako zahradník - pěstuješ čistotu všude kolem sebe! 🌱",
+  "Jsi jako kouzelník - odpadky mizí pod tvýma rukama! 🎩✨",
+  "Tvůj úklid je jako dobré víno - s časem se jen zlepšuje! 🍷",
+  "Jsi odpadkový whisperer - rozumíš jazyku nepořádku! 🗑️👂",
+  "Tvůj úklidový styl je jako tanec - elegantní a efektivní! 💃",
+  "Jsi jako superhrdina - tvou superschopností je úklid! 🦸‍♂️🧹",
+  "Tvůj úklid je jako dobrá kniha - každá kapitola je čistší než ta předchozí! 📚",
+  "Jsi jako šéfkuchař - ale tvou specialitou je čistota! 👨‍🍳✨",
+  "Tvůj úklid je jako dobré kafe - povzbuzující a nezbytný! ☕",
+  "Jsi jako horský průvodce - vedeš nás k vrcholu čistoty! 🏔️",
+  "Tvůj úklid je jako dobrý vtip - vždy nás rozesměje! 😂",
+  "Jsi jako alchymista - měníš nepořádek v čistotu! 🧪✨",
+  "Tvůj úklid je jako dobrá masáž - uvolňující pro okolí! 💆‍♂️",
+  "Jsi jako kapitán lodi - kormidluješ nás k čistým břehům! ⚓",
+  "Tvůj úklid je jako dobrá píseň - má rytmus a melodii! 🎵",
+  "Jsi jako světlonoš - přinášíš světlo do temných koutů! 🕯️",
+  "Tvůj úklid je jako dobrý film - plný akce a s happy endem! 🎬",
+  "Jsi jako včelka - pilně pracuješ na úlu čistoty! 🐝",
+  "Tvůj úklid je jako dobrá partie šachu - strategický a precizní! ♟️",
+  "Jsi jako malíř - ale tvým plátnem je čistota! 🎨",
+  "Tvůj úklid je jako dobrý sen - když se probudíme, vše je krásné! 💤✨"
 ];
 
 // Initialize employee list and load race goal progress when DOM is ready
@@ -175,8 +206,8 @@ function selectForTrashDuty(){
     const numToSelect = parseInt(numToSelectInput.value);
 
 
-    // Kryštof always stays
-    const stayingEmployees = ['Kryštof'];
+    // KS
+    const stayingEmployees = [];
 
     // Ensure at least one manager stays
     const managers = presentEmployees.filter(emp => emp.position === "manager" && emp.name !== "Kryštof");
