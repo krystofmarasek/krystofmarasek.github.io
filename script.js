@@ -1,29 +1,31 @@
 // Employee data
 const employees = [
-    { name: 'Filip J', position: 'manager', cash: true },
+    { name: 'Fíla', position: 'manager', cash: true },
     { name: 'Verča Ž', position: 'manager', cash: true },
-    { name: 'Hajdu', position: 'manager', cash: false },
-    { name: 'Táňa', position: 'manager', cash: true },
-    { name: 'Anet', position: 'manager', cash: true },
+    { name: 'Táňa', position: 'manager', cash: false },
     { name: 'Adam', position: 'manager', cash: true },
+    { name: 'Eliška', position: 'manager', cash: true },
+    { name: 'Pan Novák', position: 'manager', cash: true },
 
-    { name: 'Filip N', position: 'athlete', cash: true },
-    { name: 'David K', position: 'athlete', cash: true },
-    { name: 'David M', position: 'athlete', cash: true },
-    { name: 'Ophelie', position: 'athlete', cash: false },
+    { name: 'Lucka', position: 'athlete', cash: false },
+    { name: 'Denča', position: 'athlete', cash: false },
+
+    { name: 'David', position: 'athlete', cash: true },
     { name: 'Kryštof', position: 'athlete', cash: true },
-    { name: 'Tomáš', position: 'athlete', cash: true },
-    { name: 'Kobi', position: 'athlete', cash: false },
+    { name: 'Kobi', position: 'athlete', cash: true },
+    { name: 'Tomáš', position: 'athlete', cash: false },
+    { name: 'Lukáš', position: 'athlete', cash: true },
+    { name: 'David M', position: 'athlete', cash: true },
 
-    { name: 'Nikča', position: 'athlete', cash: true },
-    { name: 'Eliška', position: 'athlete', cash: true },
-    { name: 'Pája', position: 'athlete', cash: true },
-    { name: 'Andy', position: 'athlete', cash: true },
-    { name: 'Anička H', position: 'athlete', cash: true },
-    { name: 'Anička Š', position: 'athlete', cash: true },
+    { name: 'Annie', position: 'athlete', cash: true },
     { name: 'Gabča', position: 'athlete', cash: true },
-    { name: 'Dyry', position: 'athlete', cash: true },
-    { name: 'Lucka', position: 'athlete', cash: false }
+    { name: 'Niky', position: 'athlete', cash: true },
+    { name: 'Anička', position: 'athlete', cash: true },
+    { name: 'Andrea', position: 'athlete', cash: true },
+    { name: 'Pavla', position: 'athlete', cash: true },
+    { name: 'Anet', position: 'athlete', cash: true },
+    { name: 'Eva', position: 'athlete', cash: true },
+
 ];
 
 const trashDutyMessages = [
