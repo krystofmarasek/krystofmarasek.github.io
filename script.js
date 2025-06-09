@@ -1,30 +1,32 @@
 // Employee data
 const employees = [
     { name: 'Fíla', position: 'manager', cash: true },
-    { name: 'Verča Ž', position: 'manager', cash: true },
+    { name: 'Verča Ž.', position: 'manager', cash: true },
     { name: 'Táňa', position: 'manager', cash: false },
     { name: 'Adam', position: 'manager', cash: true },
     { name: 'Eliška', position: 'manager', cash: true },
     { name: 'Pan Novák', position: 'manager', cash: true },
 
     { name: 'Lucka', position: 'athlete', cash: false },
-    { name: 'Denča', position: 'athlete', cash: false },
+    { name: 'Ema', position: 'athlete', cash: false },
 
     { name: 'David', position: 'athlete', cash: true },
     { name: 'Kryštof', position: 'athlete', cash: true },
     { name: 'Kobi', position: 'athlete', cash: true },
     { name: 'Tomáš', position: 'athlete', cash: false },
     { name: 'Lukáš', position: 'athlete', cash: true },
-    { name: 'David M', position: 'athlete', cash: true },
+    { name: 'David M.', position: 'athlete', cash: true },
+    { name: 'Filip V.', position: 'athlete', cash: true },
 
     { name: 'Annie', position: 'athlete', cash: true },
     { name: 'Gabča', position: 'athlete', cash: true },
-    { name: 'Niky', position: 'athlete', cash: true },
+    { name: 'Minie', position: 'athlete', cash: true },
     { name: 'Anička', position: 'athlete', cash: true },
-    { name: 'Andrea', position: 'athlete', cash: true },
     { name: 'Pavla', position: 'athlete', cash: true },
     { name: 'Anet', position: 'athlete', cash: true },
     { name: 'Eva', position: 'athlete', cash: true },
+    { name: 'Niky P.', position: 'athlete', cash: true },
+    { name: 'Verča', position: 'athlete', cash: true },
 
 ];
 
